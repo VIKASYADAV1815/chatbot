@@ -267,8 +267,8 @@ input::placeholder {
 
     /* h1 aur h2 Mobile Size */
     .container h1 {
-        font-size: 15vw; /* Mobile pe bada aur readable */
-        margin-top: 7vh;
+        font-size: 11vw; /* Mobile pe bada aur readable */
+        margin-top: 15vh;
     }
 
     .container h2 {
@@ -280,7 +280,7 @@ input::placeholder {
     .chatcont {
         align-items: flex-start; 
     
-        max-height: calc(100vh - (10px + 90px)); /* Adjusted to leave space for the prompt area */
+        max-height: calc(100vh - (0px + 90px)); /* Adjusted to leave space for the prompt area */
         font-size: large; 
         overflow: auto; 
         display: flex; 
