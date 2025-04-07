@@ -1,0 +1,313 @@
+* {
+    margin: 0;
+    padding: 0;
+    body {
+        overflow-y: hidden; /* Hides the vertical scrollbar */
+        border-color: black;
+        z-index: 4;
+    }
+    
+    /* Other existing styles */
+    
+    box-sizing: border-box;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.background-image {
+    background-image: url('bacg.jpg');
+    background-color: black;
+    background-size: cover;
+    background-position: center;
+    width: 100%;
+    height: 100vh; /* Adjust height as needed */
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1; /* Place it behind other content */
+}
+
+.container {
+    width: 100%;
+    height: calc(100vh - 70px); /* Adjusted height to allow space for prompt area */
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+}
+
+.container h1 {
+    font-size: 5vw; /* Responsive font size */
+    background: linear-gradient(45deg, rgba(247, 15, 208, 0.578), rgba(11, 164, 184, 0.721), rgba(75, 230, 61, 0.682)); /* Gradient background */
+    background-size: 400% 400%; /* Allow for animation */
+    background-clip: text; /* Clip the background to the text */
+    -webkit-background-clip: text; /* For Safari compatibility */
+    -webkit-text-fill-color: transparent; /* Make the text transparent to show gradient */
+    animation: gradientAnimation 5s ease infinite; /* Animation for gradient */
+}
+
+/* Keyframes for gradient animation */
+@keyframes gradientAnimation {
+    0% {
+        background-position: 0% 50%; /* Start position */
+    }
+    50% {
+        background-position: 100% 50%; /* Mid position */
+    }
+    100% {
+        background-position: 0% 50%; /* End position */
+    }
+}
+
+.container h2 {
+    font-size: 1vw; /* Responsive font size */
+    color: rgb(123, 182, 189); /* Text color */
+    text-shadow:
+        0 0 5px #9c9797,
+        0 0 10px rgba(63, 65, 64, 0.6); /* Adjusted intensity for clarity */
+    animation: glow 1.5s infinite alternate; /* Animation */
+    font-family: cursive; /* Use the default cursive font */
+}
+
+.container h3{
+
+    font-size: 0.8rem;
+    margin-top: 50vh;
+    color: rgba(240, 248, 255, 0.274);
+    opacity: 0.5;
+    margin-bottom: 0px;
+}
+
+.area
+{   font-size: large;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: fixed; /* Ensure it stays fixed */
+    left: 0;
+    right: 0;
+    bottom: 20px;
+    background-color: transparent;
+}
+.promptarea {
+    
+    width: 70%;
+    background: transparent;
+    border-radius: 15px; /* Rounded corners */
+    border: 10px solid rgba(4, 135, 241, 0.884); /* Light border */
+    backdrop-filter: blur(77px); /* Blurs the background */
+    font-size: large;
+    height: 90px;
+    outline: none;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 10px; 
+
+}
+
+    .nav-logo {
+        width: 100%; /* Full width */
+    position: fixed; /* Keep it at the top */
+    top: 0; /* Align to the top */
+    z-index: 1000; 
+        
+    }
+    
+
+
+.nav-logo img
+
+{
+   max-width: 120px;
+   height: auto;
+   margin-top: 9px;
+   margin-left: 30px;
+  
+}
+#prompt {
+    font-size: large;
+    background: transparent;
+    width: 60%;
+    height: 60%;
+    border-radius: 10px 0px 0px 10px;
+    padding: 20px;
+    outline: none;
+    border: 2px solid rgb(85, 79, 79);
+    border-right: none;
+    color: white;
+    font-size: medium;
+    backdrop-filter: blur (7px);
+    box-shadow: inset 2px 2px 10px rgb(27, 27, 27), inset -2px -4px 10px rgba(240, 233, 233, 0.178), inset -2px -4px 10px rgba(44, 46, 46, 0.623);
+}
+
+input::placeholder {
+    color: #e6dbdb96; /* Change this to your desired color */
+    opacity: 1; /* Optional: Makes the placeholder fully opaque */
+    font-size: large;
+}
+
+#btn {
+    width: 7%;
+    color: rgba(240, 248, 255, 0);
+    height: 62%;
+    background: rgba(255, 255, 255, 0.559);
+    border-radius: 0px 10px 10px 0px;
+    box-shadow: inset 2px 2px 10px rgb(27, 27, 27), inset -2px -4px 10px rgba(188, 221, 230, 0.178), inset -2px -4px 10px rgba(109, 188, 219, 0.137);
+    transition: 0.3s all;
+    border: 2px solid gray;
+    border-left: none;
+}
+
+#btn:hover {
+    background: rgba(163, 156, 167, 0.541);
+}
+.chatcont {
+    align-items: flex-start; 
+    width: 100%; 
+    max-height: calc(100vh - (10px + 90px)); /* Adjusted to leave space for the prompt area */
+    font-size: large; 
+    overflow: auto; 
+    display: flex; 
+    flex-direction: column; 
+    gap: .5rem; 
+    padding: .5rem; 
+    padding-top: 33px;
+    padding-left: 23px;
+    z-index: 5;
+    overflow-y: auto;
+    scrollbar-width: none;
+ }
+ 
+/* User and AI message boxes remain unchanged */
+
+.userbox,
+.aibox {
+   text-align:left; 
+   margin:.5rem; 
+   max-width: 50%; 
+
+   padding:.5rem; 
+   display:flex; 
+   align-items:center; 
+   word-wrap : break-word; 
+   overflow-wrap : break-word;
+
+   box-shadow:
+       .25rem .25rem .75rem rgba(0,0,0,.6), 
+       .125rem .125rem .25rem rgba(0,0,0,.8);
+}
+
+.userbox {
+   max-width:.7fr ;  
+   padding:.5rem .75rem ;  
+   
+   border-radius:.75rem .75rem .75rem .25rem ;  
+   
+   background-color:#219be4 ;  
+   
+   align-self:flex-end ;
+}
+
+.aibox {
+   color:black ;  
+   
+   border-radius:.25rem .75rem .75rem .75rem ;  
+   
+   background-color : rgba(240 ,243 ,247 , .795) ;  
+   
+   align-self:flex-start ;
+}
+
+/* Image styles remain unchanged */
+
+.img {
+   width :3.125rem ;  
+   
+   height:auto ;  
+   
+   margin-right:.625rem ;  
+   
+   border-radius :50% ;
+}
+
+/* Keyframes for gradient animation */
+@keyframes gradient {
+    	0% { background-position:0%50%; }
+    	50% { background-position:100%50%; }
+    	100% { background-position:0%50%; }
+}
+
+
+/* Phone Ke Liye Responsive (Media Query) */
+@media screen and (max-width: 768px) {
+    /* .area Width Badhao */
+    .area {
+        width: 100%; /* Full width for mobile */
+        padding: 0 10px; /* Side padding taaki fit rahe */
+    }
+
+    /* .promptarea Width */
+    .promptarea {
+        width: 90%; /* Phone pe zyada width (pehle 70% tha) */
+        height: 70px; /* Thodi chhoti height taaki screen pe fit ho */
+    }
+
+    /* #prompt Adjustment */
+    #prompt {
+        width: 75%; /* Prompt input ko thoda bada kiya */
+        font-size: medium;
+    }
+
+    /* #btn Adjustment */
+    #btn {
+        width: 15%; /* Button ko thoda bada kiya */
+        height: 60%; /* Height adjust */
+    }
+
+    /* h1 aur h2 Mobile Size */
+    .container h1 {
+        font-size: 11vw; /* Mobile pe bada aur readable */
+        margin-top: 7vh;
+    }
+
+    .container h2 {
+        font-size: 4vw;
+        margin-top: 13px; /* Mobile pe bada aur readable */
+    }
+
+    /* Chat Container Adjustment */
+    .chatcont {
+        align-items: flex-start; 
+    
+        max-height: calc(100vh - (10px + 90px)); /* Adjusted to leave space for the prompt area */
+        font-size: large; 
+        overflow: auto; 
+        display: flex; 
+        flex-direction: column; 
+        gap: .5rem; 
+        padding: .5rem; 
+        padding-top: 33px;
+        padding-left: 13px;
+       
+        scrollbar-width: none;
+        
+        
+     }
+     .userbox,
+     .aibox{
+        max-width: 90%; 
+     }
+
+     .nav-logo img
+
+{
+   max-width: 70px;
+   height: auto;
+   margin-top: 16px;
+   margin-left: 30px;
+  
+}
+
+     
+}
