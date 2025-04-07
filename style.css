@@ -267,7 +267,7 @@ input::placeholder {
 
     /* h1 aur h2 Mobile Size */
     .container h1 {
-        font-size: 11vw; /* Mobile pe bada aur readable */
+        font-size: 15vw; /* Mobile pe bada aur readable */
         margin-top: 7vh;
     }
 
